@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(42, 171, 211);
+    background: linear-gradient(to right, #1f95f5, #42A5F5, #71bbf7, rgb(150, 223, 245));
+}
+
+.card {
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 20px 10px black;
+}
+
+div {
+    font-family: monospace;
+}

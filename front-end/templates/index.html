@@ -1,0 +1,105 @@
+<!--Archivo index-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Lista de Compras.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-black fixed-top text-warning mb-5" >
+        <h3 class="mx-5"><b>Simulador de Lista de Compras</b></h3>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row p-5" id="app">
+
+            <div class="col-sm-12 col-lg-4 mx-auto my-5" style="padding: 5%">
+
+                <div class="card text-center bg-black mx-auto">
+                    <div class="card-header">
+                        <h4 class="card-title text-info">AGREGAR NUEVO PRODUCTO A LA LISTA DE COMPRAS</h4>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            New +
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-12 col-lg-8 mx-auto" style="padding: 5%;">
+
+                <div class="card text-center bg-black">
+                    <div class="card-header">
+                        <h4 class="card-title text-info">LISTA DE COMPRAS</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table" id="lista-productos">
+                            <thead>
+                                <tr>
+                                    <th class="bg-success">Producto</th>
+                                    <th class="bg-success">Cantidad</th>
+                                    <th class="bg-success">Editar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Aquí se agregarán las filas de productos -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-black">
+                <div class="modal-header text-warning">
+                    <h4>Agregar productos</h4>
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-backspace-reverse"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row" id="id-form-productos">
+                        <div class="row">
+                            <div class="col-sm-6 pb-3 text-white">
+                                <label for="id-producto" class="form-label">Nombre del producto</label>
+                                <input type="text" class="form-control" id="id-producto" name="producto" required>
+                            </div>
+                            <div class="col-sm-4 pb-3 text-white">
+                                <label for="id-cantidad" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" id="id-cantidad" name="cantidad" required>
+                            </div>
+                            <div class="col-sm-2 text-center" style="padding-top: 4.5%;">
+                                <button type="submit" class="btn btn-info bg-black text-info btn-sm"
+                                    id="id-guardar-lista">
+                                    + Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+    <script type="module" src="{{ url_for('static', filename='js/app.js')}}"></script>
+    <!--<script type="module" src="../static/js/app.js"></script>-->
+
+</body>
+
+</html>
+

@@ -1,3 +1,4 @@
+// archivo app.js 
 class Product {
     constructor(nombre, cantidad) {
         this.nombre = nombre;
@@ -78,3 +79,4 @@ document.getElementById('lista-productos').addEventListener('click', function(e)
     const ui = new UI();
     ui.deleteProduct(e.target)
 })
+

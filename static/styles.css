@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(42, 171, 211);
+    background: linear-gradient(to right, #1f95f5, #42A5F5, #71bbf7, rgb(150, 223, 245));
+}
+
+.card-verificar {
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 10px 10px black;
+}

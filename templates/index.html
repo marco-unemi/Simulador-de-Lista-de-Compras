@@ -1,0 +1,132 @@
+<!-- Archivo index.html-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row px-5 py-4">
+            <div class="col-6">
+
+                <div class="card m-2 ">
+                    <div class="card-header text-center">
+                        <h2>Agregar Artículo</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="/agregar">
+                            <div class="row">
+                                <div class="col-sm-6 pb-3 text-center">
+                                    <label for="" class="form-label"><b>Nombre del producto</b></label>
+                                    <input type="text" class="form-control border-dark-subtle" name="nombre" required>
+                                </div>
+                                <div class="col-sm-3 pb-3 text-center">
+                                    <label for="" class="form-label"><b>Cantidad</b></label>
+                                    <input type="number" class="form-control border-dark-subtle" name="cantidad" min="1" required>
+                                </div>
+                                <div class="col-sm-3 text-center" style="padding-top: 4%;">
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                                        Agregar <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card m-2 ">
+                    <div class="card-header text-center">
+                        <h2>Eliminar Artículo</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="/eliminar">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-6 pb-3 text-center">
+                                    <label for="" class="form-label"><b>Nombre del producto</b></label>
+                                    <input type="text" class="form-control border-dark-subtle" name="nombre" required>
+                                </div>
+
+                                <div class="col-sm-3 text-center" style="padding-top: 4%;">
+                                    <button type="submit" value="Eliminar" class="btn btn-danger">Eliminar
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card m-2 ">
+                    <div class="card-header text-center">
+                        <h2>Verificar Disponibilidad</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="/verificar">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-6 pb-3 text-center">
+                                    <label for="" class="form-label"><b>Nombre del producto</b></label>
+                                    <input type="text" class="form-control border-dark-subtle" name="nombre" required>
+                                </div>
+
+                                <div class="col-sm-3 text-center" style="padding-top: 4%;">
+                                    <button type="submit" value="Verificar" class="btn btn-primary"><b>Verificar</b>
+                                        <i class="bi bi-patch-check"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card m-2 ">
+                    <div class="card-header text-center">
+                        <h2>Vaciar Carrito de Compras</h2>
+                    </div>
+                    <div class="card-body text-center">
+                        <form method="POST" action="/vaciar">
+                            <button type="submit" value="Vaciar Carrito" class="btn btn-danger">Vaciar
+                                Carrito <i class="bi bi-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- LISTA DE COMPRAS -->
+            <div class="col-6">
+
+                <div class="card m-2 text-center">
+                    <div class="card-header">
+                        <h1>Lista de Compras</h1>
+                    </div>
+                    <div class="card-body">
+                        {% if lista %}
+                            <ul class="list-group">
+                                {% for item in lista %}
+                                    <li class="list-group-item">{{ item[1] }} {{ item[0] }}(s)</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p class="fw-bold fs-5">LISTA DE COMPRAS VACIA</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
